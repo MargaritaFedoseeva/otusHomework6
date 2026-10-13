@@ -70,14 +70,14 @@ public class CoursesPage extends AbsBasePage<CoursesPage> {
 
         rightSlider.focus();
         // Нажимаем стрелку влево. Слайдер визуально сдвинется на UI, React обновит состояние
-        IntStream.range(0, 15 - to).forEach(i -> page.keyboard().press("ArrowLeft"));
+        IntStream.range(0, 14 - to).forEach(i -> page.keyboard().press("ArrowLeft"));
 
         String expectedText = String.format("От %d до %d месяцев", from, to);
         page.getByText(expectedText)
                 .first()
                 .waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.ATTACHED));
 
-        //page.waitForTimeout(2000); // todo:
+        page.waitForTimeout(2000); // todo:
     }
 
     public void checkUpdateCoursesCards(List<String> cardTextFiltered) {
