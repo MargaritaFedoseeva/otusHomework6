@@ -15,10 +15,6 @@ public class UIExtensions implements BeforeAllCallback, AfterAllCallback, Before
     private BrowserContext browserContext;
     private Playwright playwright;
 
-    private static final String MOON_URL = "wss://moon.local/playwright/chrome/playwright-1.62.0?headless=false"
-            + "&arg=--start-maximized"       // Максимизирует сам браузер в контейнере Moon
-            + "&arg=--window-size=1920,1080"; // Задает базовый размер окна
-
     @Override
     public void beforeAll(ExtensionContext context) throws Exception {
 
@@ -29,7 +25,6 @@ public class UIExtensions implements BeforeAllCallback, AfterAllCallback, Before
         String wssUrl = MoonConfig.getMoonUrl();
 
         playwright = Playwright.create();
-        // Подключаемся к удаленному браузеру в Moon
         browser = playwright.chromium().connect(wssUrl, new BrowserType.ConnectOptions());
 
 //        //для локального запуска
