@@ -2,6 +2,7 @@ package extensions;
 
 import com.google.inject.Guice;
 import com.microsoft.playwright.*;
+import config.MoonConfig;
 import modules.PagesModule;
 import org.junit.jupiter.api.extension.*;
 
@@ -14,7 +15,7 @@ public class UIExtensions implements BeforeAllCallback, AfterAllCallback, Before
     private BrowserContext browserContext;
     private Playwright playwright;
 
-    private static final String MOON_URL = "wss://moon.local/playwright/chrome/playwright-1.62.0?headless=false"
+    private static final String MOON_URL = "ws://moon.moon.svc.cluster.local:4444/playwright/chrome/playwright-1.62.0?headless=false"
             + "&arg=--start-maximized"       // Максимизирует сам браузер в контейнере Moon
             + "&arg=--window-size=1920,1080"; // Задает базовый размер окна
 
@@ -25,8 +26,11 @@ public class UIExtensions implements BeforeAllCallback, AfterAllCallback, Before
 //        // Указываем путь к кастомной папке драйвера (для Java)
 //        System.setProperty("playwright.driver.tmpdir", "C:\\Users\\Администратор\\playwright-temp");
 
+        String wssUrl = MoonConfig.getMoonUrl();
+
         playwright = Playwright.create();
-        browser = playwright.chromium().connect(MOON_URL, new BrowserType.ConnectOptions());
+        // Подключаемся к удаленному браузеру в Moon
+        browser = playwright.chromium().connectOverCDP(wssUrl);
 
 //        //для локального запуска
 //        browser = playwright.chromium().launch(new BrowserType.LaunchOptions()
