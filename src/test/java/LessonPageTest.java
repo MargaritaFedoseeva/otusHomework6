@@ -25,7 +25,7 @@ public class LessonPageTest {
     private LessonPage lessonPage;
 
     @Test
-    @DisplayName("Test carousel and teacher popup")
+    @DisplayName("Тестирвоание карусели преподавателей")
     public void testCheckTeachers() {
         lessonPage.open("clickhouse");
 
