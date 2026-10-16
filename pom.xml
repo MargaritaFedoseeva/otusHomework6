@@ -13,7 +13,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <playwright.version>1.62.0</playwright.version>
-        <junit.version>5.10.2</junit.version>
+        <junit.version>5.8.2</junit.version>
         <guice.version>7.0.0</guice.version>
         <surefire.plugin.version>3.2.5</surefire.plugin.version>
         <checkstyle.plugin.version>3.6.0</checkstyle.plugin.version>
@@ -26,6 +26,11 @@
             <groupId>com.microsoft.playwright</groupId>
             <artifactId>playwright</artifactId>
             <version>${playwright.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.inject</groupId>
