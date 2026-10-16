@@ -19,11 +19,13 @@ pipeline {
                         "WINDOW_SIZE=${params.WINDOW_SIZE}"
                     ]) {
                         sh 'mvn clean test'
+                        sh 'chmod -R 777 target/allure-results || true'
                     }
                 }
             }
         }
     }
+
     post {
         always {
             allure ([results: [[path:'target/allure-results']]])
