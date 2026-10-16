@@ -25,7 +25,7 @@ public class LessonPageTest {
     private LessonPage lessonPage;
 
     @Test
-    @DisplayName("Тестирвоание карусели преподавателей")
+    @DisplayName("Тестирование карусели преподавателей")
     public void testCheckTeachers() {
         lessonPage.open("clickhouse");
 
