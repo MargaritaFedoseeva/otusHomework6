@@ -26,7 +26,6 @@ pipeline {
     }
     post {
         always {
-            archiveArtifacts artifacts: '*_trace.zip', allowEmptyArchive: true
             allure ([results: [[path:'target/allure-results']]])
         }
     }
