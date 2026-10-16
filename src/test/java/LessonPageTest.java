@@ -3,6 +3,10 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.junit.UsePlaywright;
 import com.microsoft.playwright.options.BoundingBox;
 import extensions.UIExtensions;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,6 +17,8 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 
 @ExtendWith(UIExtensions.class)
 @UsePlaywright
+@Epic("Платформа OTUS")
+@Feature("Действия на странице Курса")
 public class LessonPageTest {
 
     @Inject

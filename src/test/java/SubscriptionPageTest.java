@@ -3,6 +3,8 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.junit.UsePlaywright;
 import com.microsoft.playwright.options.AriaRole;
 import extensions.UIExtensions;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,13 +15,15 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 
 @ExtendWith(UIExtensions.class)
 @UsePlaywright
+@Epic("Платформа OTUS")
+@Feature("Подписки")
 public class SubscriptionPageTest {
 
     @Inject
     private SubscriptionPage subscriptionPage;
 
     @Test
-    @DisplayName("Test subscription")
+    @DisplayName("Оформление подписки")
     void testSubscription() {
         // Открыть страницу подписок
         subscriptionPage.open("");

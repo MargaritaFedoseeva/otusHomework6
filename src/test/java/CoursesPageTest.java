@@ -2,6 +2,10 @@ import com.google.inject.Inject;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.junit.UsePlaywright;
 import extensions.UIExtensions;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,13 +18,15 @@ import java.util.regex.Pattern;
 
 @ExtendWith(UIExtensions.class)
 @UsePlaywright
+@Epic("Платформа OTUS")
+@Feature("Действия на странице Список курсов")
 public class CoursesPageTest {
 
     @Inject
     private CoursesPage coursesPage;
 
     @Test
-    @DisplayName("Test course filtering")
+    @DisplayName("Фильтрация курсов")
     void testCourseFilters() {
         // Открыть страницу каталог курсов
         coursesPage.open("");
