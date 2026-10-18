@@ -9,6 +9,12 @@ pipeline {
     }
 
     stages {
+          stage('Print Info') {
+                     steps {
+                         // Параметр BRANCH доступен здесь автоматически из шаблона!
+                         echo "Собираем ветку: ${params.BRANCH}"
+                     }
+                 }
         stage('Run Automation Tests') {
             steps {
                 container('maven') {
