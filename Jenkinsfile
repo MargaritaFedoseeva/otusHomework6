@@ -34,8 +34,9 @@ pipeline {
 
     post {
         always {
-            allure ([results: [[path:'target/allure-results']]])
-            archiveArtifacts artifacts: '**/allure-results/**'
+           // allure ([results: [[path:'target/allure-results']]])
+           archiveArtifacts artifacts: '**/allure-results/**', allowEmptyArchive: true
+
         }
     }
 }
